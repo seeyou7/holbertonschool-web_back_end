@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""type-annotated function"""
-import math
+""" function that concats two strings"""
 
 
-def floor(n: float) -> int:
-    """returns the floor of the float"""
-    return math.floor(n)
+def concat(str1: str, str2: str) -> str:
+    """ return concatenated string"""
+    return str1 + str2
