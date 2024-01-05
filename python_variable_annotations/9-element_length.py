@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-    type annotation ensures that the function's usage and 
-    expectations are clear and can be checked 
+    type annotation ensures that the function's usage and
+    expectations are clear and can be checked
     by static type checkers for correctness in terms of types
 """
 from typing import Iterable, Sequence, List, Tuple
