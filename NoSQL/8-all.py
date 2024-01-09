@@ -10,3 +10,4 @@ def list_all(mongo_collection):
     if result:
         return result
     return []
+
