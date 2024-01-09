@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""list all documents in a collection"""
+"""Function that lists all documents in a collection"""
 
 from pymongo import MongoClient
 
 
 def list_all(mongo_collection):
-    """Return a list of docs if not empty"""
-    result = mongo_collection.school.find()
-    if result:
-        return result
-    return []
+    """Return an empty list if no document in the collection"""
+    if mongo_collection:
+        return list(mongo_collection.find({}))
