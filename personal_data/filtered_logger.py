@@ -1,8 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import re
+from typing import List
 
 
-def filter_datum(fields, redaction, meassage, separator):
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
     """Returns the obfuscated log message."""
-    pattern = r'(' + '|'.join(fields) + r')=([^' + separator + r']*)'
-    return re.sub(pattern, r'\1=' + redaction, meassage)
+    pattern = f'({"|".join(fields)})=([^${separator}]+)'
+    return re.sub(pattern, rf'\1={redaction}', message)
