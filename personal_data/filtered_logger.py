@@ -1,18 +1,14 @@
 #!/usr/bin/env python3
 import re
 import logging
+from typing import List
 
 
-def filter_datum(fields, redaction, message, separator):
-    """
-     Replaces the values of specified fields in a
-     log message with a redaction string.
-    """
-    for field in fields:
-        message = re.sub(
-            f'{field}=[^ {separator}]+', f'{field}={redaction}', message
-        )
-    return message
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
+    """Returns the obfuscated log message."""
+    pattern = f'({"|".join(fields)})=([^${separator}]+)'
+    return re.sub(pattern, rf'\1={redaction}', message)
 
 
 class RedactingFormatter(logging.Formatter):
