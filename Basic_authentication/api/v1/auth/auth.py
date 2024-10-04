@@ -1,28 +1,45 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python3
+"""
+Authentication module for the API
+"""
+from flask import request
 from typing import List, TypeVar
 
 
-class Auth:
-    """ Authentication class """
+User = TypeVar('User')
+
+
+class Auth():
+    """ Class to manage the API authentication.
+    """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        """ Determines if authentication is required for the given path.
         """
-        This method will later be used to determine if a request should be
-        authenticated based on the path. For now, it just returns False.
-        """
-        return False
+        if path is None:
+            return True
+
+        if not excluded_paths:
+            return True
+
+        normal_path = path if path.endswith('/') else path + '/'
+
+        normal_excluded_paths = [p if p.endswith('/') else p + '/'
+                                 for p in excluded_paths]
+
+        if normal_path in normal_excluded_paths:
+            return False
+
+        return True
 
     def authorization_header(self, request=None) -> str:
+        """ Retrieves the Authorization header from the request.
         """
-        This method will return None for now. In the future, it will extract
-        the authorization header from the request.
-        """
-        return None
+        if request is None or 'Authorization' not in request.headers:
+            return None
+        return request.headers['Authorization']
 
-    def current_user(self, request=None) -> TypeVar('User'):
-        """
-        This method will return None for now. Later, it will return the current
-        authenticated user.
+    def current_user(self, request=None) -> User:
+        """ Retrieves the current user from the request.
         """
         return None
