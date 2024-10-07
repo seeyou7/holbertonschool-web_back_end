@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""
-Basic Authentication module
+""" Module of Basic Authentication
 """
 from api.v1.auth.auth import Auth
+from base64 import b64decode
+from models.user import User
+from typing import TypeVar
 
 
 class BasicAuth(Auth):
@@ -24,7 +26,7 @@ class BasicAuth(Auth):
 
         return encoded
 
-     def decode_base64_authorization_header(self,
+    def decode_base64_authorization_header(self,
                                            base64_authorization_header: str
                                            ) -> str:
         """ Decodes the value of a base64 string """
