@@ -2,7 +2,7 @@
 """App module
 """
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort, make_response, redirect
 from auth import Auth
 
 
@@ -32,6 +32,25 @@ def welcome():
         message in JSON format.
     """
     return jsonify({"message": "Bienvenue"})
+
+
+@app.route('/sessions', methods=["POST"], strict_slashes=False)
+def login():
+    """
+        Endpoint to log in a user.
+    """
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    if AUTH.valid_login(email, password):
+
+        session_id = AUTH.create_session(email)
+        response = make_response(jsonify({"email": email,
+                                          "message": "logged in"}))
+        response.set_cookie("session_id", session_id)
+        return response
+    else:
+        abort(401)
 
 
 if __name__ == "__main__":
