@@ -53,7 +53,7 @@ def login():
         abort(401)
 
 
-@app.route('/sessions', methods=["DELETE"], strict_slashes=False)
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
     """
         Ennpoint for logout the user
@@ -67,6 +67,20 @@ def logout():
         response = make_response(redirect('/'))
         response.set_cookies('session_id', '', expires=0)
         return response
+    else:
+        abort(403)
+
+
+@app.route('/profile', methods=['GET'], strict_slashes=False)
+def profile():
+    """Endpoint to get a user's profile information.
+    """
+    session_id = request.cookies.get('session_id')
+
+    user = AUTH.get_user_from_session_id(session_id)
+
+    if user:
+        return jsonify({"email": user.email}), 200
     else:
         abort(403)
 
