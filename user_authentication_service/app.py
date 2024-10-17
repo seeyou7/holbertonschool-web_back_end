@@ -58,12 +58,12 @@ def logout():
     """
         Ennpoint for logout the user
     """
-    session_id = request.cookie.get('session_id')
+    session_id = request.cookies.get('session_id')
 
     user = AUTH.get_user_from_session_id(session_id)
 
     if user:
-        Auth.destroy_session(user.id)
+        AUTH.destroy_session(user.id)
         response = make_response(redirect('/'))
         response.set_cookie('session_id', '', expires=0)
         return response
