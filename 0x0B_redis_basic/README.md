@@ -1,6 +1,6 @@
 # Redis Basics
 
-![Flowchart of Redis Python Tasks](image/flowchart.webp)
+![Redis Python ](images/flowchart.webp)
 
 This repository covers the fundamentals of Redis using Python. Redis is an in-memory data structure store often used as a cache or message broker. Through the tasks in this repository, you will learn how to perform basic operations with Redis, leverage it as a cache, and create a robust data management system with Redis commands and decorators in Python.
 
