@@ -1,6 +1,6 @@
 # MySQL Advanced
 
-![Flowchart of MySQL Advanced Tasks](images/flowchart.png)
+![Flowchart of MySQL Advanced Tasks](images/flowchart.webp)
 
 This repository contains a collection of advanced MySQL scripts designed to help you master SQL techniques such as table creation with constraints, indexing for optimization, triggers, stored procedures, functions, and views. Each script addresses specific data-handling requirements and simulates real-world applications, helping you learn to write efficient, maintainable SQL code for complex database solutions.
 
