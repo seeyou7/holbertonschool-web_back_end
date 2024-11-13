@@ -1,5 +1,5 @@
 const assert = require('assert');
-const calculateNumber = require('./1-calcul');
+const calculateNumber = require('./1-calcul.js');
 
 describe('calculateNumber', function() {
 
@@ -18,7 +18,7 @@ describe('calculateNumber', function() {
         });
     
         it('should return the Division by 0 shld throw error', function() {
-            assert.equal(calculateNumber('division', 1.2, 0), 'Error');
+            assert.equal(calculateNumber('division', 1.4, 0), 'Error');
         });
 });
 });
