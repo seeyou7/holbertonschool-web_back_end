@@ -19,15 +19,15 @@ describe('calculateNumber', function() {
         assert.strictEqual(calculateNumber(1.5, 3.7), 6);
     });
 
-    it('should return 2 when inputs are -1.6 and 3.6', function() {
-        assert.strictEqual(calculateNumber(-1.6, 3.6), 2);
+    it('should return -1.2 when inputs are -3.7 and -5', function() {
+        assert.strictEqual(calculateNumber(-1.2, -3.7), -5);
+    })
+
+    it('should return 1.4 when inputs are -4.5 and 6', function() {
+        assert.strictEqual(calculateNumber(1.4, 4.5), 6);
     });
 
-    it('should return -2 when inputs are -4.6 and 3', function() {
-        assert.strictEqual(calculateNumber(-4.6, 3), -2);
-    });
-
-    it('should return -5 when inputs are -1.6 and -3.2', function() {
-        assert.strictEqual(calculateNumber(-1.6, -3.2), -5);
+    it('should return -5 when inputs are 0 and 0', function() {
+        assert.strictEqual(calculateNumber(0, 0), 0);
     });
 });
