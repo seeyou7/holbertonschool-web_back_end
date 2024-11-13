@@ -10,7 +10,7 @@ function calculateNumber(type, a, b) {
         case 'sub' :
             return roundedA - roundedB;
         case 'division' :
-            if(roundedB == 0) {
+            if(roundedB === 0) {
                 return "Error";
             }
             return roundedA / roundedB;
