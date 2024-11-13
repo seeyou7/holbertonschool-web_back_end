@@ -18,4 +18,4 @@ function calculateNumber(type, a, b) {
             throw new Error('Invalid operation type');
     }
 }
-export default calculateNumber;
+module.exports = calculateNumber;
