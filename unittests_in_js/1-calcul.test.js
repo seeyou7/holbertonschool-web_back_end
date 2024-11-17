@@ -19,4 +19,3 @@ const calculateNumber = require('./1-calcul.js');
             assert.strictEqual(calculateNumber('division', 1.4, 0), 'Error');
         });
 });
-
